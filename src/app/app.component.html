@@ -1,0 +1,32 @@
+<div class="page-title">
+  <h1>
+    Pacients Data
+  </h1>
+</div>
+
+<div>
+  <div class="pacient" *ngFor="let pacient of pacientsData;">
+      <div class="pacient-name" (click)="pacient.display_info=!pacient.display_info">
+        {{ pacient.first_name }} {{ pacient.last_name }}
+      </div>
+
+      <table class="data-pacients-table" [ngClass]="{'visible': pacient.display_info}">
+          <tr>
+            <th>Gender</th>
+            <th>Diagnosis</th>
+            <th>Diagnosis Detailed</th>
+            <th>Drug Treatment</th>
+            <th>E-mail</th>
+          </tr>
+          <tr>
+            <td>{{ pacient.gender }}</td>
+            <td>{{ pacient.diagnosis_description }}</td>
+            <td>{{ pacient.diagnosis_description_detailed }}</td>
+            <td>{{ pacient.administered_drug_treatment }}</td>
+            <td>{{ pacient.email }}</td>
+          </tr>
+        </table>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
